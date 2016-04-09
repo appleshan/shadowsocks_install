@@ -1,0 +1,54 @@
+Shadowsocks 相关资料
+
+* 1、Shadowsocks 是什么
+Shadowsocks 是一种安全的 socks5 代理，可以保护你的上网流量。基于多种加密方式，
+推荐使用 aes-256-cfb 加密。安装和使用需要本地端和服务端。
+本地客户端已经包含了多种版本，包括 iOS，Android，Windows，MAC，甚至是路由器
+(基于 OpenWRT)，所以使用方便，各取所需。
+远程服务端则一般安装在基于 Linux 的各种发行版操作系统，比如 Debian，CentOS，
+Fedora，Redhat，Ubuntu，openSUSE 等。
+
+* 2、Shadowsocks 的作者是谁
+最初只有 Python 版，由 [[https://github.com/clowwindy][@clowwindy]] 开发和维护，后来随着知名度提高，开始出现各种
+语言的版本，其中比较知名的是 libev，go，nodejs 等版本，需要注意的是，nodejs
+的作者也是 @clowwindy，但最近已不再维护该版本。libev 的维护者是 [[https://github.com/clowwindy][@madeye]] ，长期更新。
+
+* 3、Shadowsocks 一键安装脚本
+虽然作者的安装教程已经很完备了，但还是有不少人不会安装和使用，因此我编写了
+Shadowsocks 一键安装脚本，主要基于 CentOS 系统下的一键安装（也有 [[https://teddysun.com/358.html][Debian]] 系统），
+分别有 [[https://teddysun.com/342.html][Python]] ，[[https://teddysun.com/357.html][libev]] ，[[https://teddysun.com/355.html][nodejs]] 版，个人推荐使用 Python 和 libev 版。
+该脚本会自动下载，编译安装最新版的 Shadowsocks，并且可以完全卸载 Shadowsocks，
+自动生成配置文件，安装完成即可使用。
+
+* 4、Shadowsocks 如何升级
+安装完 Shadowsocks，一段时间后，作者已经更新了版本（修正 bug 或升级功能），那么
+如何一键升级到最新版呢？
+
+Python 版，执行命令：
+pip install -U shadowsocks
+命令执行成功后，重新启动 Shadowsocks，命令：
+service shadowsocks restart
+
+libev 版，先卸载旧版本，执行命令：
+./shadowsocks-libev.sh uninstall
+再安装新版本，执行命令：
+./shadowsocks-libev.sh
+
+Debian 下的 libev 版，升级方式同上。
+nodejs 版，也是先卸载再重新安装，因为作者已经不更新，所以不推荐用这版本。
+
+* 5、Shadowsocks 安装失败怎么办
+由于 CentOS 5.x 的默认 gcc 版本过低，在编译 libev 版时会出错；同时默认 Python
+的版本也过低，所以也无法安装 Python 版的。因此，请确保安装的环境为 CentOS 6.x
+或 CentOS 7.x。
+更多其他错误，请根据实际错误提示，自行在 google 上搜索关键字。
+
+* 6、Shadowsocks 的客户端程序
+大多数人都是在 Windows 下使用电脑，因此最好用的 Windows 客户端是 [[https://sourceforge.net/projects/shadowsocksgui/files/dist/][shadowsocks-gui]]，
+下载最新版后解压即可使用。
+
+* 7、Shadowsocks 本地代理上网
+本地电脑启动客户端，连接上远程服务端后，即在本地开启了 socks5 代理，本地端口号
+默认为 1080，如果提示被占用，也可以改为其他端口号。在浏览器中安装插件，Chrome
+下是 [[https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm?hl=zh-CN][SwitchySharp]] ，Firefox 下是 [[https://addons.mozilla.org/zh-cn/firefox/addon/autoproxy/][AutoProxy]] ，新建配置文件，SOCKS Host 填 127.0.0.1，
+Port 填 1080（默认，跟 Shadowsocks 客户端的本地端口号一致即可）
