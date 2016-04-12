@@ -32,6 +32,7 @@ chmod +x haproxy.sh
 #+END_SRC
 
 安装的过程中，交互提示如下：
+
 [[images/haproxy.png]]
 
 第一步输入需要 haproxy 代理的端口号，这里要跟 Shadowsocks 服务器开放的端口号一致。
