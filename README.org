@@ -4,7 +4,7 @@
 
 Description: Auto Install Shadowsocks(Python) Server for CentOS/Redhat/Fedora/Debian/Ubuntu
 
-Intro: [[doc/Shadowsocks Python 版一键安装脚本.org][Shadowsocks Python 版一键安装脚本]]
+Intro: [[doc/Shadowsocks_Python_版一键安装脚本.org][doc/Shadowsocks_Python_版一键安装脚本.org]]
 
 ** shadowsocks-libev.sh
 
