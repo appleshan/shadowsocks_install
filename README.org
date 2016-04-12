@@ -10,7 +10,7 @@ Intro: [[doc/Shadowsocks_Python_版一键安装脚本.org][doc/Shadowsocks_Pytho
 
 Description: Auto Install Shadowsocks(libev) Server for CentOS/Redhat/Fedora
 
-Intro: [[doc/CentOS 下 shadowsocks-libev 一键安装脚本.org][CentOS 下 shadowsocks-libev 一键安装脚本]]
+Intro: [doc/CentOS_下_shadowsocks-libev_一键安装脚本.org][CentOS 下 shadowsocks-libev 一键安装脚本]]
 
 ** shadowsocks-libev-debian.sh
 
