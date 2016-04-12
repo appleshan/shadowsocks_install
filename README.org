@@ -1,0 +1,45 @@
+* Auto install Shadowsocks Server
+
+** shadowsocks.sh
+
+Description: Auto Install Shadowsocks(Python) Server for CentOS/Redhat/Fedora/Debian/Ubuntu
+
+Intro: [[doc/Shadowsocks Python 版一键安装脚本.org][Shadowsocks Python 版一键安装脚本]]
+
+** shadowsocks-libev.sh
+
+Description: Auto Install Shadowsocks(libev) Server for CentOS/Redhat/Fedora
+
+Intro: [[doc/CentOS 下 shadowsocks-libev 一键安装脚本.org][CentOS 下 shadowsocks-libev 一键安装脚本]]
+
+** shadowsocks-libev-debian.sh
+
+Description: Auto Install Shadowsocks(libev) Server for Debian/Ubuntu
+
+Intro: [[doc/Debian 下 shadowsocks-libev 一键安装脚本.org][Debian 下 shadowsocks-libev 一键安装脚本]]
+
+** shadowsocks-go.sh
+
+Description: Auto Install Shadowsocks(Go) Server for CentOS/Redhat/Fedora/Debian/Ubuntu
+
+Intro: [[doc/Shadowsocks-go 一键安装脚本.org][Shadowsocks-go 一键安装脚本]]
+
+** shadowsocks-crond.sh
+
+Description: Check Shadowsocks(All version) Server is running or not, and start it if not running
+
+Intro: [[doc/Shadowsocks 定时任务脚本.org][Shadowsocks 定时任务脚本]]
+
+** haproxy.sh
+
+Description: Auto Install haproxy for Shadowsocks Server
+
+Intro: [[doc/使用 haproxy 中转 Shadowsocks 流量一键安装脚本.org][使用 haproxy 中转 Shadowsocks 流量一键安装脚本]]
+
+** shadowsocks-nodejs.sh (Deprecated)
+
+Description: Auto Install Shadowsocks(NodeJS) Server for CentOS/Redhat/Fedora
+
+Intro: [[doc/CentOS 下 shadowsocks-nodejs 一键安装脚本.org][CentOS 下 shadowsocks-nodejs 一键安装脚本]]
+
+感谢 Teddysun <i@teddysun.com> 的奉献！

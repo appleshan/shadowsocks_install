@@ -1,0 +1,67 @@
+Shadowsocks 定时任务脚本
+
+不少人反应 Shadowsocks 在使用一段时间后，其进程会消失。
+其实这种情况大多数是被系统给 kill 了。
+诚然一部分是 VPS 的原因，一部分是 Shadowsocks 的原因。比如内存过小，比如多端口
+使用一段时间后内存占用过大，导致内存不足等等。
+鉴于此，写了一个 Shadowsocks 进程检查脚本，一旦发现进程不存在便会重新启动。
+
+使用 root 用户登录，运行以下命令：
+#+BEGIN_SRC bash
+wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-crond.sh
+chmod +x shadowsocks-crond.sh
+#+END_SRC
+此时便将脚本 shadowsocks-crond.sh 下载回来并赋予执行权限了。
+
+后面将此脚本扔到 Linux 的定时任务 cron 里就搞定了。
+cron 是一个 Linux 下的定时执行工具，可以在无需人工干预的情况下运行作业。由于
+Cron 是 Linux 的内置服务，多数情况下它不是自动启动的，可以用以下的方法启动、
+关闭这个服务。
+#+BEGIN_SRC bash
+# 启动服务
+/etc/init.d/crond start
+# 关闭服务
+/etc/init.d/crond stop
+# 重启服务
+/etc/init.d/crond restart
+# 重新载入配置
+/etc/init.d/crond reload
+#+END_SRC
+编辑 /etc/crontab 文件配置 cron
+默认的是以下这样的：
+#+BEGIN_SRC conf
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+#+END_SRC
+
+只需在最后追加如下一行：
+#+BEGIN_SRC conf
+*/5 * * * * root bash /root/shadowsocks-crond.sh
+#+END_SRC
+
+然后保存退出。
+以上表示每 5 分钟，root 用户执行一下脚本 /root/shadowsocks-crond.sh
+注意脚本要写完整路径。
+
+这样系统就会每 5 分钟检查一下 Shadowsocks 进程是否存在了，如果不存在了会自动重
+新启动。
+脚本每次运行会写日志的，日志完整路径如下：
+#+BEGIN_EXAMPLE
+/var/log/shadowsocks-crond.log
+#+END_EXAMPLE
+
+没事可以去看看该日志文件，看看 Shadowsocks 进程是不是真的经常性不存在，如果真是
+如此，恐怕就要排查一下深层原因了。
