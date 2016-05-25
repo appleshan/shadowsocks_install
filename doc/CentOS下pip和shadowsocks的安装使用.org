@@ -1,4 +1,4 @@
-CentOS 下 pip 和 shadowsocks 的安装使用
+#+TITLE:CentOS 下 pip 和 shadowsocks 的安装使用
 
 Pip 是安装 Python 包的工具，提供了安装、列举已安装包、升级以及卸载包的功能。Pip 是
 对 easy_install 的取代，提供了和 easy_install 相同的查找包的功能，因此可以使用

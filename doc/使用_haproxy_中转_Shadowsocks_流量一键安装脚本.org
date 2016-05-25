@@ -1,14 +1,14 @@
-* 使用 haproxy 中转 Shadowsocks 流量一键安装脚本
+#+TITLE:使用 haproxy 中转 Shadowsocks 流量一键安装脚本
 
-** 本脚本适用环境
+* 本脚本适用环境
 系统支持：CentOS，Debian，Ubuntu
 内存要求：≥128M
 =日期：2016 年 03 月 26 日=
 
-** 关于本脚本
+* 关于本脚本
 一键安装并配置 haproxy，实现中转 Shadowsocks 的功能。
 
-** 背景说明
+* 背景说明
 Shadowsocks，一款优秀的基于各种加密方式的 socks 代理工具。既然已经有了
 Shadowsocks 可以直接使用，为什么还要通过第三方服务器来中转呢？原因无非以下几点：
 1、克服本地带宽和国际带宽通信不足。本地直连 Shadowsocks 走的是国际流量，由于众
@@ -16,14 +16,14 @@ Shadowsocks 可以直接使用，为什么还要通过第三方服务器来中�
    从而克服本地网络国际带宽不足的问题。
 2、隐藏真实 IP 的需要。这点不多解释。
 
-** 简要讲解
+* 简要讲解
 假设你的本地电脑为 A，haproxy 服务器为 B，Shadowsocks 服务器为 C。
 A 当然可以直接去连 C，但如上所说，往往你的本地网络国际带宽不足，实际上的可用速
 度并不快。假设 B 是国内某机房的服务器，机房服务器带宽一般来说比你本地网络带宽要
 大得多。A 连接 B，通过 B 连接 C 中转流量，如此一来，虽然成本有所上升，但却能明
 显改善网络带宽情况。
 
-** 使用方法
+* 使用方法
 使用 root 用户登录，运行以下命令：
 #+BEGIN_SRC bash
 wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/haproxy.sh
@@ -49,7 +49,7 @@ Welcome to visit:https://shadowsocks.be/10.html
 Enjoy it.
 #+END_EXAMPLE
 
-** 卸载方法
+* 卸载方法
 使用 root 用户登录，Debian 或 Ubuntu 系统运行以下命令：
 #+BEGIN_SRC bash
 apt-get -y remove haproxy
@@ -65,7 +65,7 @@ yum -y remove haproxy
 rm -rf /etc/haproxy
 #+END_SRC
 
-** 使用命令
+* 使用命令
 启动：/etc/init.d/haproxy start
 停止：/etc/init.d/haproxy stop
 重启：/etc/init.d/haproxy restart
@@ -73,12 +73,12 @@ rm -rf /etc/haproxy
 
 配置文件路径：/etc/haproxy/haproxy.cfg
 
-** 其他说明
-*** 1、在安装此脚本之前，请确保 Shadowsocks 服务器能正常使用。
+* 其他说明
+** 1、在安装此脚本之前，请确保 Shadowsocks 服务器能正常使用。
 也就是说，你直接连上 Shadowsocks 服务器的可用的。
 如何一键搭建 Shadowsocks 服务器，请参考本站相关文章。
 
-*** 2、如果你需要代理多个端口，请自行修改 haproxy 的配置文件 /etc/haproxy/haproxy.cfg
+** 2、如果你需要代理多个端口，请自行修改 haproxy 的配置文件 /etc/haproxy/haproxy.cfg
 修改如下所示的部分：
 #+BEGIN_SRC conf
 frontend ss-8989
@@ -94,7 +94,7 @@ server server1 111.222.111.222:8989 maxconn 20480
 frontend 是 haproxy 使用的端口，backend 是连接 Shadowsocks 服务器的端口。我这里
 为避免混淆，把两者端口统一了。
 
-*** 3、客户端配置说明
+** 3、客户端配置说明
 [[images/client.png]]
 
 服务器 IP：此处填写 haproxy 服务器的公网 IP（脚本最后显示的 Your haproxy Server IP）
@@ -104,7 +104,7 @@ frontend 是 haproxy 使用的端口，backend 是连接 Shadowsocks 服务器�
 协议：此处可选，如果你安装的是 ShadowsocksR 服务端可选择，默认即可
 混淆：此处可选，如果你安装的是 ShadowsocksR 服务端可选择，默认即可
 
-*** 4、本脚本没有对防火墙进行任何设置。
+** 4、本脚本没有对防火墙进行任何设置。
 因此，在安装完毕后，如果你发现连接不上，可以尝试更改防火墙设置或关闭防火墙。
 
-*** 5、值得注意的是，haproxy 只能使用 TCP 方式中转流量。
+** 5、值得注意的是，haproxy 只能使用 TCP 方式中转流量。

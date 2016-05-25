@@ -1,4 +1,4 @@
-* Debian 下 shadowsocks-libev 一键安装脚本
+#+TITLE:Debian 下 shadowsocks-libev 一键安装脚本
 
 ** 本脚本适用环境
 系统支持：Debian/Ubuntu

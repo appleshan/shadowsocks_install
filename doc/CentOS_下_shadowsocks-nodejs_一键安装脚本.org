@@ -1,24 +1,24 @@
-* CentOS 下 shadowsocks-nodejs 一键安装脚本
+#+TITLE:CentOS 下 shadowsocks-nodejs 一键安装脚本
 
-** 本脚本适用环境
+* 本脚本适用环境
 系统支持：CentOS/Redhat/Fedora
 内存要求：≥128M
 =日期：2014 年 07 月 12 日=
 
-** 关于本脚本
+* 关于本脚本
 一键安装 Nodejs 版的 shadowsocks 最新版本，同时会安装 Nodejs 及其安装工具 npm。
 备注：因为需要编译安装 Nodejs 的最新版，如果内存太小的话会安装失败，因此本人只在
 最低 128MB 的 VPS 上测试过该脚本。
 
-** 默认配置
+* 默认配置
 服务器端口：8989
 客户端端口：1080
 密码：自己设定（如不设定，默认为 teddysun.com）
 
-** 客户端下载
+* 客户端下载
 http://sourceforge.net/projects/shadowsocksgui/files/dist/
 
-** 使用方法
+* 使用方法
 使用 root 用户登录，运行以下命令：
 #+BEGIN_SRC bash
 wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-nodejs.sh
@@ -40,13 +40,13 @@ Welcome to visit:https://teddysun.com/355.html
 Enjoy it!
 #+END_EXAMPLE
 
-** 卸载方法
+* 卸载方法
 使用 root 用户登录，运行以下命令：
 #+BEGIN_SRC bash
 ./shadowsocks-nodejs.sh uninstall
 #+END_SRC
 
-** 其他事项
+* 其他事项
 客户端配置的参考链接：https://teddysun.com/339.html
 
 安装完成后即已后台启动 shadowsocks 的服务器端 ssserver，运行：

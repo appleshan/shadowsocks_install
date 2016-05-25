@@ -1,4 +1,4 @@
-* Shadowsocks 定时任务脚本
+#+TITLE:Shadowsocks 定时任务脚本
 
 不少人反应 Shadowsocks 在使用一段时间后，其进程会消失。
 其实这种情况大多数是被系统给 kill 了。

@@ -1,4 +1,4 @@
-Shadowsocks Troubleshooting
+#+TITLE:Shadowsocks Troubleshooting
 
 用 Shadowsocks 有很长一段时间了，想当初为了方便自己部署，写了几个一键安装脚本。
 在这期间，经常被问到很多问题，我回答的零零散散，因此有必要在这里归纳总结一下。
